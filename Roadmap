@@ -1,0 +1,89 @@
+Dungeon Mastering Kit
+=====================
+
+(Copyright © 2012 Ben Lewis <benjf5+github.com>)
+
+Ideally, the way data is stored will be agnostic for the main application and it
+will simply be able to load a database or other structure; I'm expecting to
+start with JSON as a simple container format for the time being, moving to a
+proper other method once I have the time to figure it out. JSON does seem to me
+to be a fairly good way of handling it, though.
+
+So, load will be a separate group of functions so that I can add in multiple
+ways of handling files eventually, if I want to.
+
+Character contains:
+ - Name, a string
+ - Race, another class
+ - Class, a ... class. (Actually, how to deal with multiple-class characters? Hmm.)
+ - Level, an int
+ - Alignment, an enum
+ - Vector<Skills> (or a hash?) (Not likely to be so many that a vector is slow)
+ - Vector<Feats> (or a hash?) (ditto)
+ - a print() function,
+ - Other functions.
+
+Player contains
+ - Name, a string
+ - Vector<Characters> to keep track of who plays whom.
+ - print() function which prints the Player's name and the list of characters
+   the player controls.
+ - Other functions.
+ 
+Campaign contains:
+ - Name
+ - Vector<Characters> "player_characters" to keep track of what characters are
+   being used in a campaign
+ - Vector<Events> in which order matters, and is a list of events in the
+   campaign
+ - Structure to hold locations, some of which are dungeons.
+ 
+ 
+Event contains:
+ - Name, a string
+ - Location*, a pointer to a location where the event is located,
+ - Some form of plot info
+ - Characters involved
+ - Items involved, loot, etc.
+ - print() function that formats this well.
+
+Dungeon contains:
+ - Location info, possibly pointer to Location which contains it
+ - Event vector
+ - Map info, somehow (vector of rooms?)
+ - Encounter level
+ - Plot point info
+ - Item list
+ - List of monsters
+ - List of traps
+ - List of characters
+ - print() function to format the dungeon
+  
+Monster contains:
+ - Name
+ - Encounter Level
+ - Skills
+ - Feats
+ - Attack info
+ 
+Trap contains:
+ - Name
+ - Trigger
+ - Effect
+ - Save
+ - Description
+
+Item contains:
+ - Name
+ - Value
+ - Description
+ - Is inherited by Weapon, Armour, others.
+
+Weapon contains:
+ - Inherited fields from Item
+ - Damage Type
+ - Damage (how to deal with dice?)
+ - Vector for enchantments?
+
+
+
