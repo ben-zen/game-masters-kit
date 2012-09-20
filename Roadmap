@@ -23,7 +23,12 @@ Character contains:
  - a print() function,
  - Other functions.
 
-Player contains
+Archetype inherits Character and can fill in most values of Character except for
+name, race, and age; an Archetype is constant upon creation and is used as a
+pointer inside an ArchetypalCharacter construct to return all the details a
+Character needs to return.
+
+Player contains:
  - Name, a string
  - Vector<Characters> to keep track of who plays whom.
  - print() function which prints the Player's name and the list of characters

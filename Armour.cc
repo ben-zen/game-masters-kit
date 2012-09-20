@@ -1,5 +1,5 @@
 /* Copyright (C) 2012 Ben Lewis <benjf5+github@gmail.com>
- *
+ * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -15,15 +15,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <string>
-#include <vector>
+class Armour : public Item {
+  
+  unsigned int armour_bonus;
+  unsigned int hardness;
 
-class Item {
-protected:
-  std::string name;
-  std::string description;
-  /* Question: how to record value? All items have one, do I store it as a
-   * vector of currency items? No idea. This is something to consider.
-   */
-  std::vector<Enchantment> item_enchantments;
 }
